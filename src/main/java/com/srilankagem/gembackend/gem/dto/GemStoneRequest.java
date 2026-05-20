@@ -6,7 +6,8 @@ import com.srilankagem.gembackend.gem.models.GemType;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

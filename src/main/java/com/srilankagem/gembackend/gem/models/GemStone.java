@@ -8,8 +8,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "gemstones")
-@Getter @Setter
-@NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class GemStone {
 
@@ -49,7 +51,7 @@ public class GemStone {
 
     @Column(nullable = false)
     @Builder.Default
-    private boolean certified;
+    private boolean certified = false;
 
     @Column(nullable = false)
     @Builder.Default
@@ -64,9 +66,10 @@ public class GemStone {
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
 
-    @PrePersist
+    @PreUpdate
     protected void onUpdate() {
         this.updatedAt = LocalDateTime.now();
     }

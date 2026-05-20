@@ -13,15 +13,15 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class GemStoneService {
 
-    private final GemStoneRepository gemStoneRepo;
+    private final GemStoneRepository gemStoneRepository;
 
     public Page<GemStoneResponse> getAllGemStones(Pageable pageable) {
 
-//      return gemStoneRepo.findByActiveTrue(pageable).map(item ->toResponse(item));
-        return gemStoneRepo.findByActiveTrue(pageable).map(this::toResponse);
+//      return gemStoneRepository.findByActiveTrue(pageable).map(item ->toResponse(item));
+        return gemStoneRepository.findByActiveTrue(pageable).map(this::toResponse);
     }
 
-    public GemStoneResponse gemStoneResponse(GemStoneRequest request) {
+    public GemStoneResponse createGemstone(GemStoneRequest request) {
 
         GemStone gemStone = GemStone.builder()
                 .gemCode(request.getGemCode())
@@ -33,7 +33,10 @@ public class GemStoneService {
                 .color(request.getColor())
                 .treatment(request.getTreatment())
                 .pricePerCarat(request.getPricePerCarat())
+                .active(true)
                 .build();
+
+        return toResponse(gemStoneRepository.save(gemStone));
     }
 
     private GemStoneResponse toResponse(GemStone gemStone) {
@@ -52,4 +55,5 @@ public class GemStoneService {
                 .createdAt(gemStone.getCreatedAt())
                 .updatedAt(gemStone.getUpdatedAt()).build();
     }
+
 }
