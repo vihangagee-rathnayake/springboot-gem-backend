@@ -1,0 +1,24 @@
+package com.srilankagem.gembackend.gem.dto;
+
+import lombok.*;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class CertificateResponse {
+
+    private Long id;
+    private String certificateNumber;
+    private Long gemId;
+    private String issueBy;
+    private LocalDate issueDate;
+    private LocalDate expiryDate;
+    private String remarks;
+    private LocalDateTime createdAt;
+
+}
