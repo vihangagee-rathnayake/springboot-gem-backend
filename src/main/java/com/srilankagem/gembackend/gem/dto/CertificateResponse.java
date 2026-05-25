@@ -15,8 +15,9 @@ public class CertificateResponse {
     private Long id;
     private String certificateNumber;
     private Long gemId;
-    private String issueBy;
-    private LocalDate issueDate;
+    private String gemCode;
+    private String issuedBy;
+    private LocalDate issuedDate;
     private LocalDate expiryDate;
     private String remarks;
     private LocalDateTime createdAt;

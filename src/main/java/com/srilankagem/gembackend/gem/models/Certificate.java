@@ -25,7 +25,7 @@ public class Certificate {
     private String certificateNumber;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "gemstone_id")
+    @JoinColumn(name = "gemstone_id", nullable = false, unique = true)
     private GemStone gemStone;
 
     @Column(nullable = false)
