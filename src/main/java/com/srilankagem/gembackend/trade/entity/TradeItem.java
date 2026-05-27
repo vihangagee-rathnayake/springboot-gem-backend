@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 @Builder
 public class TradeItem {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
